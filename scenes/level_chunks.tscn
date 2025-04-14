@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://uchxme84lg8h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4duj7"]
+size = Vector3(1, 1, 6.64508)
+
+[node name="LevelChunks" type="Node3D"]
+
+[node name="FlatGround" type="Node" parent="."]
+
+[node name="Ground" type="CSGBox3D" parent="FlatGround"]
+use_collision = true
+size = Vector3(20, 5, 10)
+
+[node name="Challenge-Body-01" type="RigidBody3D" parent="FlatGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.45362, 2.41645, -0.735664)
+
+[node name="Challenge-Collision-01" type="CollisionShape3D" parent="FlatGround/Challenge-Body-01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.218597)
+shape = SubResource("BoxShape3D_4duj7")
+debug_color = Color(0.839216, 0, 0.909804, 1)
+
+[node name="RampUp" type="Node" parent="."]
+
+[node name="Ramp" type="CSGBox3D" parent="RampUp"]
+transform = Transform3D(0.981787, -0.189987, 0, 0.189987, 0.981787, 0, 0, 0, 1, 24.1472, 1.54203, 0)
+use_collision = true
+size = Vector3(20, 5, 10)
+
+[node name="Challenge-Body-01" type="RigidBody3D" parent="RampUp"]
+transform = Transform3D(0.981787, -0.189987, 0, 0.189987, 0.981787, 0, 0, 0, 1, 32.9695, 5.71054, -0.735664)
+
+[node name="Challenge-Collision-01" type="CollisionShape3D" parent="RampUp/Challenge-Body-01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.218597)
+shape = SubResource("BoxShape3D_4duj7")
+debug_color = Color(0.839216, 0, 0.909804, 1)

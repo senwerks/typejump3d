@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bycmgygqjtp1e"]
+
+[ext_resource type="Script" uid="uid://2oj0oyphn5xq" path="res://scenes/player.gd" id="1_3vyb7"]
+[ext_resource type="PackedScene" uid="uid://c8m1d8dy6xv03" path="res://assets/Chica.gltf" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://dchkw4sf0uo8b" path="res://scenes/word_challenge.tscn" id="2_qhqgy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
+radius = 0.468067
+height = 1.05853
+
+[sub_resource type="SystemFont" id="SystemFont_3vyb7"]
+subpixel_positioning = 0
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_3vyb7")
+word_challenge_scene = ExtResource("2_qhqgy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.513147, 0)
+shape = SubResource("CapsuleShape3D_u8vuu")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.880577, 0.473904, 0, -0.473904, 0.880577, 0, 2.4877, 3.50636)
+current = true
+
+[node name="ChallengeWord" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10837, 0.0622808)
+font = SubResource("SystemFont_3vyb7")
+font_size = 96
+
+[node name="Chica" parent="." instance=ExtResource("2_g2els")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.68098, 2.32653, 3.92173)
+light_color = Color(0.979675, 1, 0.817081, 1)
+omni_range = 7.39218

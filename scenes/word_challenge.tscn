@@ -1,0 +1,14 @@
+[gd_scene load_steps=6 format=3 uid="uid://dchkw4sf0uo8b"]
+
+[ext_resource type="Script" uid="uid://xpmwfsryl2sk" path="res://word_challenge.gd" id="1_jcego"]
+[ext_resource type="PackedScene" uid="uid://d17m8y3t4y5hf" path="res://scenes/letter_3d.tscn" id="2_uye2n"]
+[ext_resource type="Material" uid="uid://b5nce4h7l2c8e" path="res://materials/letter_right.tres" id="3_f52oh"]
+[ext_resource type="Material" uid="uid://og23kcn05w6" path="res://materials/letter_wrong.tres" id="4_qb8ri"]
+[ext_resource type="Material" uid="uid://dykudhhotbgmt" path="res://materials/letter_default.tres" id="5_n823f"]
+
+[node name="WordChallenge" type="Node3D"]
+script = ExtResource("1_jcego")
+letter_scene = ExtResource("2_uye2n")
+mat_correct = ExtResource("3_f52oh")
+mat_incorrect = ExtResource("4_qb8ri")
+mat_default = ExtResource("5_n823f")

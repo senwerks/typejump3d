@@ -1,0 +1,29 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="TypeJump"
+config/description="Type... Jump!"
+config/version="0.2"
+run/main_scene="uid://0a1553j8ixu0"
+config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://3l4c4oo3jtkl"
+config/icon="uid://cht2uiqm3nrwi"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

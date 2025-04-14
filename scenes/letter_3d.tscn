@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://d17m8y3t4y5hf"]
+
+[ext_resource type="Script" uid="uid://bysq0prnfri33" path="res://scenes/letter_3d.gd" id="1_68uo0"]
+[ext_resource type="Material" uid="uid://b5nce4h7l2c8e" path="res://materials/letter_right.tres" id="2_3d5tk"]
+[ext_resource type="FontFile" path="res://fonts/cmu-typewriter/Typewriter.tres" id="2_y162s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3d5tk"]
+
+[sub_resource type="TextMesh" id="TextMesh_3d5tk"]
+material = ExtResource("2_3d5tk")
+font = ExtResource("2_y162s")
+font_size = 64
+uppercase = true
+
+[node name="Letter3D" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_3d5tk")
+mesh = SubResource("TextMesh_3d5tk")
+script = ExtResource("1_68uo0")
