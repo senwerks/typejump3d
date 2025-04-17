@@ -20,7 +20,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.513147, 0)
 shape = SubResource("CapsuleShape3D_u8vuu")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.880577, 0.473904, 0, -0.473904, 0.880577, 0, 2.4877, 3.50636)
+transform = Transform3D(1, 0, 0, 0, 0.880577, 0.473904, 0, -0.473904, 0.880577, 0, 4.13152, 5.4327)
 current = true
 
 [node name="ChallengeWord" type="Label3D" parent="."]

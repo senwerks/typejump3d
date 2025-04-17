@@ -1,35 +1,78 @@
-[gd_scene load_steps=2 format=3 uid="uid://uchxme84lg8h"]
+[gd_scene load_steps=4 format=3 uid="uid://uchxme84lg8h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4duj7"]
-size = Vector3(1, 1, 6.64508)
+size = Vector3(0.449341, 0.229492, 2.02148)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4duj7"]
+albedo_color = Color(1, 0.509804, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twc1i"]
+albedo_color = Color(0.254902, 1, 1, 1)
 
 [node name="LevelChunks" type="Node3D"]
 
-[node name="FlatGround" type="Node" parent="."]
+[node name="FlatGround" type="Node3D" parent="."]
 
 [node name="Ground" type="CSGBox3D" parent="FlatGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.475, 0)
 use_collision = true
-size = Vector3(20, 5, 10)
+size = Vector3(10, 64.95, 2)
 
-[node name="Challenge-Body-01" type="RigidBody3D" parent="FlatGround"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.45362, 2.41645, -0.735664)
+[node name="Ground2" type="CSGBox3D" parent="FlatGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 0)
+use_collision = true
+size = Vector3(0.5, 1, 2)
 
-[node name="Challenge-Collision-01" type="CollisionShape3D" parent="FlatGround/Challenge-Body-01"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.218597)
+[node name="Obstacle" type="RigidBody3D" parent="FlatGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44035, 1.54083, -0.146737)
+
+[node name="ObstacleCollision" type="CollisionShape3D" parent="FlatGround/Obstacle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.696076, -0.385254, 0.218597)
 shape = SubResource("BoxShape3D_4duj7")
 debug_color = Color(0.839216, 0, 0.909804, 1)
 
-[node name="RampUp" type="Node" parent="."]
+[node name="FlatGround2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6843, 0, 0)
 
-[node name="Ramp" type="CSGBox3D" parent="RampUp"]
-transform = Transform3D(0.981787, -0.189987, 0, 0.189987, 0.981787, 0, 0, 0, 1, 24.1472, 1.54203, 0)
+[node name="Ground" type="CSGBox3D" parent="FlatGround2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30.4565, 0)
 use_collision = true
-size = Vector3(20, 5, 10)
+size = Vector3(10, 62.9131, 4.8584)
+material = SubResource("StandardMaterial3D_4duj7")
 
-[node name="Challenge-Body-01" type="RigidBody3D" parent="RampUp"]
-transform = Transform3D(0.981787, -0.189987, 0, 0.189987, 0.981787, 0, 0, 0, 1, 32.9695, 5.71054, -0.735664)
+[node name="Ground2" type="CSGBox3D" parent="FlatGround2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 0)
+use_collision = true
+size = Vector3(1, 1, 4.8584)
+material = SubResource("StandardMaterial3D_4duj7")
 
-[node name="Challenge-Collision-01" type="CollisionShape3D" parent="RampUp/Challenge-Body-01"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.218597)
+[node name="Obstacle" type="RigidBody3D" parent="FlatGround2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44035, 1.54083, -0.146737)
+
+[node name="ObstacleCollision" type="CollisionShape3D" parent="FlatGround2/Obstacle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.617327, -0.471768, 0.218597)
+shape = SubResource("BoxShape3D_4duj7")
+debug_color = Color(0.839216, 0, 0.909804, 1)
+
+[node name="FlatGround3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6154, 0, 0)
+
+[node name="Ground" type="CSGBox3D" parent="FlatGround3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -33.1168, 0)
+use_collision = true
+size = Vector3(10, 68.2336, 2.92773)
+material = SubResource("StandardMaterial3D_twc1i")
+
+[node name="Ground2" type="CSGBox3D" parent="FlatGround3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.5, 0)
+use_collision = true
+size = Vector3(1, 1, 2.92773)
+material = SubResource("StandardMaterial3D_twc1i")
+
+[node name="Obstacle" type="RigidBody3D" parent="FlatGround3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9927, 1.54083, -0.146737)
+
+[node name="ObstacleCollision" type="CollisionShape3D" parent="FlatGround3/Obstacle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.60244, -0.457006, 0.218597)
 shape = SubResource("BoxShape3D_4duj7")
 debug_color = Color(0.839216, 0, 0.909804, 1)

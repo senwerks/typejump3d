@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var max_fall_speed: float = 50.0
 @export var jump_strength: float = 12.0
 @export var word_challenge_scene: PackedScene  # Assign word_challenge.tscn here
+@export var challenge_group: String = "obstacle"  # Group name for obstacles that trigger challenges
 
 var is_moving: bool = true
 var active_challenge: RigidBody3D = null
@@ -45,12 +46,26 @@ func _physics_process(delta: float) -> void:
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
-		if collider is RigidBody3D and (collider.get_parent().name == "Challenges") and is_moving:
-			print("Collided with ", collider)
-			active_challenge = collider
-			is_moving = false
-			word_challenge.start_challenge()
-			break
+		
+		# Check if it's a RigidBody3D that has the obstacle group
+		if collider is RigidBody3D and is_moving:
+			# Option 1: Check if it's in our challenge group
+			if collider.is_in_group(challenge_group):
+				handle_collision_with_challenge(collider)
+			
+			# Option 2: Check if it's named "Obstacle" (based on your structure)
+			elif collider.name == "Obstacle":
+				handle_collision_with_challenge(collider)
+			
+			# Option 3: Check if it has a specific metadata tag
+			elif collider.get_meta("is_challenge", false):
+				handle_collision_with_challenge(collider)
+
+func handle_collision_with_challenge(collider: RigidBody3D) -> void:
+	print("Collided with ", collider)
+	active_challenge = collider
+	is_moving = false
+	word_challenge.start_challenge()
 
 func _on_challenge_completed() -> void:
 	if active_challenge:

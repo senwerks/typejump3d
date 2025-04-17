@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://0a1553j8ixu0"]
+[gd_scene load_steps=8 format=3 uid="uid://0a1553j8ixu0"]
 
 [ext_resource type="Script" uid="uid://obu85l61hue" path="res://scenes/lower_boundary.gd" id="1_5poiv"]
-[ext_resource type="PackedScene" uid="uid://djp8s2g1esk04" path="res://assets/Building1.blend" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://bkt2jm2pkt36n" path="res://scenes/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bycmgygqjtp1e" path="res://scenes/player.tscn" id="40_5he1u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5he1u"]
@@ -21,10 +21,8 @@ glow_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5he1u"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5he1u"]
-size = Vector3(1, 1, 6.64508)
-
 [node name="Main" type="Node3D"]
+script = ExtResource("1_jyhfs")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2cjbq")
@@ -39,56 +37,6 @@ debug_color = Color(0.67451, 0.203922, 0.933333, 0.996078)
 
 [node name="Ground" type="Node" parent="."]
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.62065, -13.9302, -0.855392)
-use_collision = true
-size = Vector3(6.5127, 35.2061, 5.60452)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01591, -17.103, -0.313904)
-use_collision = true
-size = Vector3(6.5127, 35.2061, 4.06067)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.61741, -18.4253, -2.65304)
-use_collision = true
-size = Vector3(6.5127, 35.2061, 8.30524)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2377, -19.3215, -2.21612)
-use_collision = true
-size = Vector3(12.2299, 35.2061, 8.30524)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4164, -1.17006, -3.96269)
-use_collision = true
-size = Vector3(9.86856, 1.44395, 4.20096)
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2231, -18.8222, -0.855392)
-use_collision = true
-size = Vector3(6.5127, 35.2061, 5.60452)
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.2513, -18.0924, -0.313904)
-use_collision = true
-size = Vector3(6.5127, 35.2061, 4.06067)
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5776, -19.3037, -2.65304)
-use_collision = true
-size = Vector3(6.5127, 35.2061, 8.30524)
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.4225, -20.2, -2.21612)
-use_collision = true
-size = Vector3(12.2299, 35.2061, 8.30524)
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.6012, -2.04852, -3.96269)
-use_collision = true
-size = Vector3(9.86856, 1.44395, 4.20096)
-
 [node name="Lights" type="Node" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
@@ -101,60 +49,7 @@ light_color = Color(1, 0.552941, 0, 1)
 light_energy = 10.0
 
 [node name="Player" parent="." instance=ExtResource("40_5he1u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.725, 0)
-
-[node name="Challenges" type="Node" parent="."]
-
-[node name="Challenge-Body-01" type="RigidBody3D" parent="Challenges"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23374, 0.878881, 1.09005)
-
-[node name="Challenge-Collision-01" type="CollisionShape3D" parent="Challenges/Challenge-Body-01"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.218597)
-shape = SubResource("BoxShape3D_5he1u")
-debug_color = Color(0.839216, 0, 0.909804, 1)
-
-[node name="Challenge-Body-02" type="RigidBody3D" parent="Challenges"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7555, -0.408271, 0)
-
-[node name="Challenge-Collision-01" type="CollisionShape3D" parent="Challenges/Challenge-Body-02"]
-shape = SubResource("BoxShape3D_5he1u")
-debug_color = Color(0.839216, 0, 0.909804, 1)
-
-[node name="Challenge-Body-03" type="RigidBody3D" parent="Challenges"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0903, -1.40043, 0)
-
-[node name="Challenge-Collision-01" type="CollisionShape3D" parent="Challenges/Challenge-Body-03"]
-shape = SubResource("BoxShape3D_5he1u")
-debug_color = Color(0.839216, 0, 0.909804, 1)
-
-[node name="Challenge-Body-04" type="RigidBody3D" parent="Challenges"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.2458, -0.778181, 1.09005)
-
-[node name="Challenge-Collision-01" type="CollisionShape3D" parent="Challenges/Challenge-Body-04"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.218597)
-shape = SubResource("BoxShape3D_5he1u")
-debug_color = Color(0.839216, 0, 0.909804, 1)
-
-[node name="Challenge-Body-05" type="RigidBody3D" parent="Challenges"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.3732, -0.385695, 0)
-
-[node name="Challenge-Collision-01" type="CollisionShape3D" parent="Challenges/Challenge-Body-05"]
-shape = SubResource("BoxShape3D_5he1u")
-debug_color = Color(0.839216, 0, 0.909804, 1)
-
-[node name="Challenge-Body-06" type="RigidBody3D" parent="Challenges"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.7217, -1.39127, 0)
-
-[node name="Challenge-Collision-01" type="CollisionShape3D" parent="Challenges/Challenge-Body-06"]
-shape = SubResource("BoxShape3D_5he1u")
-debug_color = Color(0.839216, 0, 0.909804, 1)
-
-[node name="Challenge-Body-07" type="RigidBody3D" parent="Challenges"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.4396, -2.2345, 0)
-
-[node name="Challenge-Collision-01" type="CollisionShape3D" parent="Challenges/Challenge-Body-07"]
-shape = SubResource("BoxShape3D_5he1u")
-debug_color = Color(0.839216, 0, 0.909804, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.28609, 8.05503, 0)
 
 [node name="Background" type="Node" parent="."]
 
@@ -182,6 +77,18 @@ size = Vector3(0.740906, 1.20703, 0.758667)
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="Background/Layer 1"]
 transform = Transform3D(6.48461, 0, 0, 0, 11.6789, 0, 0, 0, 5.7875, 50.5751, -1.65526, -12.8393)
+size = Vector3(0.740906, 1.20703, 1.01312)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Background/Layer 1"]
+transform = Transform3D(6.48461, 0, 0, 0, 11.6789, 0, 0, 0, 5.7875, -0.722755, -5.916, -14.092)
+size = Vector3(1.20032, 1.20703, 0.794434)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="Background/Layer 1"]
+transform = Transform3D(6.48461, 0, 0, 0, 11.6789, 0, 0, 0, 5.7875, 6.79795, -9.54866, -14.1955)
+size = Vector3(0.740906, 1.20703, 0.758667)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="Background/Layer 1"]
+transform = Transform3D(6.48461, 0, 0, 0, 11.6789, 0, 0, 0, 5.7875, 11.9912, -1.65526, -12.8393)
 size = Vector3(0.740906, 1.20703, 1.01312)
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="Background/Layer 1"]
@@ -447,6 +354,3 @@ light_indirect_energy = 1.162
 light_volumetric_fog_energy = 1.727
 light_specular = 0.75
 omni_range = 11.973
-
-[node name="Building1" parent="." instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.53741, -20.3297, -16.7413)
