@@ -49,7 +49,6 @@ func generate_level():
 		add_child(chunk_instance)
 		
 		# Calculate where the next chunk should go
-		# This assumes each chunk has the same width; you might need to adjust this
-		# based on your specific chunk designs
 		var chunk_width = 10.0  # Adjust this based on your chunk size
+		# TODO: Make this dynamic later by pulling the chunk size? Or size of a "ground" piece?
 		current_position.x += chunk_width

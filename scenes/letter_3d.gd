@@ -1,4 +1,3 @@
-# letter_3d.gd
 extends MeshInstance3D
 
 var _letter: String = "A"
